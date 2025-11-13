@@ -1,25 +1,33 @@
-from math import sqrt
+"""Module principal : affichage des nombres premiers inférieurs à 100."""
 
-#### Fonction secondaire
+from math import sqrt
 
 
 def isprime(p):
+    """
+    Retourne la valeur de vérité de la question : p est un nombre premier.
 
-    # votre code ici
+    Args:
+        p (int): Valeur entière à tester.
 
-    pass
-
-#### Fonction principale
+    Returns:
+        bool: True si p est premier, False sinon.
+    """
+    if p in (0, 1):
+        return False
+    for i in range(2, int(sqrt(p)) + 1):
+        if p % i == 0:
+            return False
+    return True
 
 
 def main():
-
-    # vos appels à la fonction secondaire ici
-
+    """
+    Fonction principale : affiche les nombres premiers de 0 à 99.
+    """
     for n in range(100):
         if isprime(n):
             print(n, end=", ")
-
     print()
 
 
